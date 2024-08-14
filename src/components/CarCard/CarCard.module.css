@@ -1,0 +1,15 @@
+.ul {
+  display: flex;
+  list-style: none;
+  width: 888px;
+  height: 358px;
+}
+
+.li {
+  display: flex;
+}
+.name {
+  display: flex;
+  gap: 248px;
+  white-space: nowrap;
+}
