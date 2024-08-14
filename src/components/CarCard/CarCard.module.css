@@ -1,5 +1,4 @@
 .ul {
-  display: flex;
   list-style: none;
   width: 888px;
   height: 358px;
@@ -12,4 +11,20 @@
   display: flex;
   gap: 248px;
   white-space: nowrap;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn {
+  width: 166px;
+  height: 56px;
+  background-color: #e44848;
+  color: white;
+  white-space: nowrap;
+  border-radius: 30px;
 }
