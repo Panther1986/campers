@@ -8,12 +8,39 @@
   padding-right: 248px;
   font-weight: bold;
   margin: 0;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
 }
 .price {
   font-weight: bold;
   padding-right: 10px;
   margin: 0;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 .btn {
   background-color: transparent;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  color: red;
+}
+
+.icon_heart:hover,
+.icon_heart:focus {
+  fill: red;
+}
+.icon {
+  font-size: 20px;
 }
