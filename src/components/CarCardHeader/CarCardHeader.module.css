@@ -1,11 +1,10 @@
 .name {
   display: flex;
-  white-space: nowrap;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
 }
 .name_product {
-  padding-right: 248px;
   font-weight: bold;
   margin: 0;
   font-family: Inter;
@@ -16,7 +15,6 @@
 }
 .price {
   font-weight: bold;
-  padding-right: 10px;
   margin: 0;
   font-family: Inter;
   font-size: 24px;
@@ -30,6 +28,8 @@
   background-color: transparent;
   color: black;
   transition: color 0.3s ease;
+  padding: 0;
+  margin-left: 10px;
 }
 
 .btn:hover,
@@ -43,4 +43,7 @@
 }
 .icon {
   font-size: 20px;
+}
+.div_price {
+  display: flex;
 }
