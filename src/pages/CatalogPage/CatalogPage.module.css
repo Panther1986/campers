@@ -1,0 +1,20 @@
+.btnLoad {
+  width: 145px;
+  height: 56px;
+  background-color: whitesmoke;
+  color: rgba(71, 84, 103, 0.2);
+  white-space: nowrap;
+  border-radius: 30px;
+}
+.btnLoad:hover,
+.btnLoad:focus {
+  background-color: cadetblue;
+}
+.ul {
+  list-style: none;
+  width: auto;
+  padding: 0 0;
+}
+.div {
+  width: auto;
+}

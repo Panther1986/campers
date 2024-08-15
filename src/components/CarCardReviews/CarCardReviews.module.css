@@ -1,0 +1,13 @@
+.div {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+.link_reviews {
+  padding-right: 30px;
+  padding-left: 5px;
+  margin: 0;
+}
+.location {
+  margin: 0;
+}

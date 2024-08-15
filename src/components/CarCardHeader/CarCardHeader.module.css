@@ -1,0 +1,19 @@
+.name {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  margin: 0;
+}
+.name_product {
+  padding-right: 248px;
+  font-weight: bold;
+  margin: 0;
+}
+.price {
+  font-weight: bold;
+  padding-right: 10px;
+  margin: 0;
+}
+.btn {
+  background-color: transparent;
+}
