@@ -9,16 +9,19 @@ import {
   selectorError,
   selectorLoading,
 } from "../../redux/operations/selectors.js";
+import { useNavigate, useParams } from "react-router-dom";
+
 const CarCard = ({ item }) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const isLoading = useSelector(selectorLoading);
   const isError = useSelector(selectorError);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    setIsModalOpen(true);
+    navigate(`/catalog/${item._id}`);
   };
   const closeModal = () => {
-    setIsModalOpen(false);
+    navigate("catalog");
   };
 
   return (
@@ -49,12 +52,8 @@ const CarCard = ({ item }) => {
               </button>
             </div>
           </div>
-          {isModalOpen && (
-            <ShowMoreModal
-              item={item}
-              isOpen={isModalOpen}
-              closeModal={closeModal}
-            />
+          {id === item._id && (
+            <ShowMoreModal item={item} isOpen={true} closeModal={closeModal} />
           )}
         </li>
       )}

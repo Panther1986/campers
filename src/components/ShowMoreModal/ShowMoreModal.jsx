@@ -4,10 +4,47 @@ import sprite from "../../images/icons.svg";
 import CarCardReviews from "../CarCardReviews/CarCardReviews";
 import { FaEuroSign } from "react-icons/fa";
 import css from "./ShowMoreModal.module.css";
+import Features from "../Features/Features";
+import Reviews from "../Reviews/Reviews";
 
 const closeIcon = `${sprite}#close`;
 
 const ShowMoreModal = ({ item, isOpen, closeModal }) => {
+  const [activeTab, setActiveTab] = useState("description");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "features":
+        return <Features id={item._id} item={item} />;
+      case "reviews":
+        return <Reviews item={item._id} />;
+
+      default:
+        null;
+      // return (
+      //   <>
+      //     <CarCardReviews item={item} />
+      //     <p className={css.price}>
+      //       <FaEuroSign className={css.icon} />
+      //       {item.price}.00
+      //     </p>
+      //     <div className={css.div}>
+      //       {item.gallery.map((image, index) => (
+      //         <img
+      //           key={index}
+      //           src={image}
+      //           alt={`${item.name} ${index + 1}`}
+      //           className={css.img}
+      //         />
+      //       ))}
+      //     </div>
+      //     <div>
+      //       <p className={css.description}>{item.description}</p>
+      //     </div>
+      //   </>
+      // );
+    }
+  };
   return (
     <>
       <Modal
@@ -44,9 +81,10 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
           <p className={css.description}>{item.description}</p>
         </div>
         <div>
-          <button>Features</button>
-          <button>Reviews</button>
+          <button onClick={() => setActiveTab("features")}>Features</button>
+          <button onClick={() => setActiveTab("reviews")}>Reviews</button>
         </div>
+        <div>{renderContent()}</div>
       </Modal>
     </>
   );

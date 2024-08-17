@@ -16,5 +16,6 @@
   padding: 0 0;
 }
 .div {
-  width: auto;
+  /* display: flex;
+  justify-content: flex-end; */
 }
