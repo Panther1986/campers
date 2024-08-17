@@ -1,64 +1,62 @@
 import { useEffect, useState } from "react";
-import { fetchAllCars } from "../../api.js";
 import toast from "react-hot-toast";
 import CarCard from "../../components/CarCard/CarCard.jsx";
 import css from "./CatalogPage.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectorAllItems,
+  selectorError,
+  selectorLoading,
+} from "../../redux/operations/selectors.js";
+import { fetchAllCars } from "../../redux/operations/operations.js";
 
 const CatalogPage = () => {
-  const itemsPerPage = 4;
-  const [cars, setCars] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const allCars = useSelector(selectorAllItems);
+  const isError = useSelector(selectorError);
+  const isLoading = useSelector(selectorLoading);
+  const dispatch = useDispatch();
 
-  const loadCars = async (page) => {
-    setLoading(true);
-    try {
-      const fetchedCars = await fetchAllCars();
-      const totalPages = Math.ceil(fetchedCars.length / itemsPerPage);
-      setTotalPages(totalPages);
-      setCars((prevCars) => [
-        ...prevCars,
-        ...fetchedCars.slice((page - 1) * itemsPerPage, page * itemsPerPage),
-      ]);
-    } catch (error) {
-      console.error("Error fetching", error);
-      setError(true);
-      toast.error("Ooooops something went wrong, please reload the page 😞");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const itemsPerPage = 4;
+  const [cars, setCars] = useState(allCars);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [visibleCars, setVisibleCars] = useState([]);
 
   useEffect(() => {
-    loadCars(currentPage);
-  }, [currentPage]);
+    dispatch(fetchAllCars());
+  }, [dispatch]);
 
-  if (loading) {
-    return <p>Loading....</p>;
-  }
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const newCars = allCars.slice(startIndex, endIndex);
+    setVisibleCars((prevCars) => [...prevCars, ...newCars]);
+  }, [currentPage, allCars]);
 
-  if (error) {
-    return <p>Error loading cars 🚗</p>;
-  }
+  const totalPages = Math.ceil(allCars.length / itemsPerPage);
 
   return (
-    <div className={css.div}>
-      <ul className={css.ul}>
-        {cars.map((car) => (
-          <CarCard key={car.id} item={car} />
-        ))}
-      </ul>
-      {currentPage < totalPages && (
-        <button
-          className={css.btnLoad}
-          onClick={() => setCurrentPage(currentPage + 1)}
-        >
-          Load more
-        </button>
+    <>
+      {isLoading ? (
+        <p>Loading....🤔</p>
+      ) : (
+        <div className={css.div}>
+          <ul className={css.ul}>
+            {visibleCars.map((car) => (
+              <CarCard key={car._id} item={car} />
+            ))}
+          </ul>
+
+          {currentPage < totalPages && (
+            <button
+              className={css.btnLoad}
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              Load more
+            </button>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

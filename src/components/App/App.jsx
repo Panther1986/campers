@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import { fetchCarWithTopic } from "../../api.js";
 import "./App.css";
 import HomePage from "../../pages/HomePage/HomePage.jsx";
 import CatalogPage from "../../pages/CatalogPage/CatalogPage.jsx";
@@ -10,25 +9,6 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 function App() {
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  // useEffect(() => {
-  //   async function fetchArticles() {
-  //     try {
-  //       setLoading(true);
-  //       const data = await fetchCarWithTopic("Road");
-  //       console.log(data);
-  //       setArticles(data);
-  //     } catch (error) {
-  //       setError(true);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-
-  //   fetchArticles();
-  // }, []);
   return (
     <div>
       <nav>
