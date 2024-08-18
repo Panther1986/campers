@@ -6,6 +6,7 @@ const initialState = {
   item: [],
   loading: false,
   error: false,
+  openModal: false,
 };
 
 const campsSlice = createSlice({
@@ -17,34 +18,43 @@ const campsSlice = createSlice({
         state.loading = true;
         state.error = false;
         state.allItems = initialState.allItems;
-        state.item = [];
+        state.item = initialState.item;
+        state.openModal = false;
       })
       .addCase(fetchAllCars.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
         state.allItems = action.payload;
-        state.item = [];
+        state.item = initialState.item;
+        state.openModal = false;
       })
       .addCase(fetchAllCars.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
         state.allItems = initialState.allItems;
-        state.item = [];
+        state.item = initialState.item;
       })
       .addCase(fetchCarOfId.pending, (state, action) => {
         state.loading = true;
         state.error = false;
         state.item = initialState.item;
+        state.openModal = false;
       })
       .addCase(fetchCarOfId.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
-        state.item = action.payload;
+        const foundItem = state.allItems.find(
+          (item) => item.id === action.payload.id
+        );
+        console.log("found Item", foundItem);
+        state.item = [action.payload];
+        state.openModal = true;
       })
       .addCase(fetchCarOfId.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
         state.item = initialState.item;
+        state.openModal = false;
       }),
 });
 

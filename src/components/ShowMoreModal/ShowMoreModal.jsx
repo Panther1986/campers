@@ -80,15 +80,15 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
         <div>
           <p className={css.description}>{item.description}</p>
         </div>
-        <div className={css.div_btn}>
+        <div className={css.div_btn_feature}>
           <button
-            className={css.btn.feature}
+            className={css.btn_feature}
             onClick={() => setActiveTab("features")}
           >
             Features
           </button>
           <button
-            className={css.btn.feature}
+            className={css.btn_feature}
             onClick={() => setActiveTab("reviews")}
           >
             Reviews

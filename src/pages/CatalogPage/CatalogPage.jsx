@@ -42,7 +42,7 @@ const CatalogPage = () => {
         <div className={css.div}>
           <ul className={css.ul}>
             {visibleCars.map((car) => (
-              <CarCard key={car._id} item={car} />
+              <CarCard key={car.id} item={car} />
             ))}
           </ul>
 

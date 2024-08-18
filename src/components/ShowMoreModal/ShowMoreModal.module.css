@@ -52,7 +52,7 @@
   border-radius: 10px;
 }
 
-.btm_feature {
+.btn_feature {
   font-family: Inter;
   font-size: 20px;
   font-weight: 600;
@@ -61,6 +61,14 @@
   background-color: transparent;
 }
 .div_btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: center;
+  background-color: transparent;
+}
+
+.div_btn_feature {
   display: flex;
   justify-content: flex-start;
   gap: 40px;

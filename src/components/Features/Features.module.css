@@ -7,24 +7,7 @@
   margin-top: 44px;
   margin-bottom: 44px;
 }
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: 5px;
-  /* width: 126px; */
-  height: 44px;
-  border-radius: 30px;
-  background-color: #f2f4f7;
-  padding: 0px 18px;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
-  text-align: center;
-  margin: 0;
-}
+
 .main {
   display: flex;
   flex-direction: row;

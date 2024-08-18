@@ -6,22 +6,34 @@ import Facilities from "../Facilities/Facilities";
 import ShowMoreModal from "../ShowMoreModal/ShowMoreModal";
 import { useSelector } from "react-redux";
 import {
+  selectOpenModal,
   selectorError,
   selectorLoading,
 } from "../../redux/operations/selectors.js";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const CarCard = ({ item }) => {
+  const isOpenModal = useSelector(selectOpenModal);
+  const [modalIsOpen, setModalIsOpen] = useState(isOpenModal);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("location", location);
   const { id } = useParams();
+
   const isLoading = useSelector(selectorLoading);
   const isError = useSelector(selectorError);
 
   const openModal = () => {
-    navigate(`/catalog/${item._id}`);
+    if (!modalIsOpen) {
+      setModalIsOpen(true);
+    }
+    navigate(`/catalog/${item.id}`);
   };
   const closeModal = () => {
-    navigate("catalog");
+    if (!modalIsOpen) {
+      setModalIsOpen(false);
+    }
+    navigate("/catalog");
   };
 
   return (
@@ -30,7 +42,7 @@ const CarCard = ({ item }) => {
         <p>Loading....🤔</p>
       ) : (
         // {isError && <p>Oooops🥵</p>}
-        <li key={item._id} className={css.li}>
+        <li key={item.id} className={css.li}>
           <div className={css.div}>
             <img
               src={item.gallery[0]}
@@ -52,7 +64,7 @@ const CarCard = ({ item }) => {
               </button>
             </div>
           </div>
-          {id === item._id && (
+          {id === item.id && (
             <ShowMoreModal item={item} isOpen={true} closeModal={closeModal} />
           )}
         </li>
