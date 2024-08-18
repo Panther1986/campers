@@ -21,28 +21,6 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
 
       default:
         null;
-      // return (
-      //   <>
-      //     <CarCardReviews item={item} />
-      //     <p className={css.price}>
-      //       <FaEuroSign className={css.icon} />
-      //       {item.price}.00
-      //     </p>
-      //     <div className={css.div}>
-      //       {item.gallery.map((image, index) => (
-      //         <img
-      //           key={index}
-      //           src={image}
-      //           alt={`${item.name} ${index + 1}`}
-      //           className={css.img}
-      //         />
-      //       ))}
-      //     </div>
-      //     <div>
-      //       <p className={css.description}>{item.description}</p>
-      //     </div>
-      //   </>
-      // );
     }
   };
   return (
@@ -52,7 +30,7 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Show more"
-        //   overlayClassName={styles.overlay}
+        overlayClassName={css.overlay}
       >
         <div className={css.div_btn}>
           <p className={css.name_product}>{item.name}</p>

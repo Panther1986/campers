@@ -27,6 +27,7 @@ const CarCard = ({ item }) => {
     if (!modalIsOpen) {
       setModalIsOpen(true);
     }
+    document.body.style.overflow = "hidden";
     navigate(`/catalog/${item.id}`);
   };
   const closeModal = () => {

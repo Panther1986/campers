@@ -1,0 +1,27 @@
+.btn {
+  background-color: transparent;
+  color: black;
+  transition: color 0.3s ease;
+  padding: 0;
+  margin-left: 10px;
+}
+.favorite {
+  color: red;
+  fill: red;
+  stroke: red;
+}
+/* .icon_heart .favorite {
+  fill: red;
+} */
+/* .btn:hover,
+.btn:focus {
+  color: red;
+}
+
+.icon_heart:hover,
+.icon_heart:focus {
+  fill: red;
+} */
+.icon {
+  font-size: 20px;
+}
