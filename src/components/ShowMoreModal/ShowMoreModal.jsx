@@ -15,9 +15,9 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
   const renderContent = () => {
     switch (activeTab) {
       case "features":
-        return <Features id={item._id} item={item} />;
+        return <Features id={item.id} item={item} />;
       case "reviews":
-        return <Reviews item={item._id} />;
+        return <Reviews id={item.id} item={item} />;
 
       default:
         null;

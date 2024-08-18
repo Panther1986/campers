@@ -11,20 +11,21 @@ const Features = ({ id: carId, item }) => {
   const { id: paramId } = useParams();
   const id = carId || paramId;
   const [camp, setCamp] = useState([]);
+  console.log("feature", item);
 
-  useEffect(() => {
-    const fetchcamp = async () => {
-      try {
-        const campData = await fetchCarOfId(id || paramId);
-        console.log(campData);
-        setCamp(campData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchcamp = async () => {
+  //     try {
+  //       const campData = await fetchCarOfId(id || paramId);
+  //       console.log(campData);
+  //       setCamp(campData);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchcamp();
-  }, [id, paramId]);
+  //   fetchcamp();
+  // }, [id, paramId]);
 
   return (
     <div className={css.main}>

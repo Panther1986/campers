@@ -1,0 +1,35 @@
+.div_rev {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  align-content: stretch;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 430px;
+}
+.first_letter {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: #f2f4f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_name {
+  display: flex;
+  flex-direction: column;
+}
+.p_name {
+  margin: 0;
+}
+
+.div_main {
+  display: flex;
+}
+
+.div_rating {
+  display: flex;
+  flex-direction: column;
+}

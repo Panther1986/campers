@@ -43,10 +43,6 @@ const campsSlice = createSlice({
       .addCase(fetchCarOfId.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
-        const foundItem = state.allItems.find(
-          (item) => item.id === action.payload.id
-        );
-        console.log("found Item", foundItem);
         state.item = [action.payload];
         state.openModal = true;
       })

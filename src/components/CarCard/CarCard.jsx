@@ -17,7 +17,7 @@ const CarCard = ({ item }) => {
   const [modalIsOpen, setModalIsOpen] = useState(isOpenModal);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("location", location);
+
   const { id } = useParams();
 
   const isLoading = useSelector(selectorLoading);
