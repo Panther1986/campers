@@ -17,7 +17,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
 
   const itemsPerPage = 4;
-  const [cars, setCars] = useState(allCars);
+  // const [cars, setCars] = useState(allCars);
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleCars, setVisibleCars] = useState([]);
 
@@ -29,7 +29,7 @@ const CatalogPage = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const newCars = allCars.slice(startIndex, endIndex);
-    setVisibleCars((prevCars) => [...prevCars, ...newCars]);
+    setVisibleCars(newCars);
   }, [currentPage, allCars]);
 
   const totalPages = Math.ceil(allCars.length / itemsPerPage);
