@@ -5,6 +5,7 @@
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 44px;
+  margin-bottom: 44px;
 }
 .item {
   display: flex;
@@ -26,4 +27,9 @@
 }
 .main {
   display: flex;
+  flex-direction: row;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
 }

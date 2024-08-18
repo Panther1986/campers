@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 24px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #939191;
+}
+.div {
+  width: 100%;
+  width: 400px;
+}
+.main_text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+}
+.support_text {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+}
+
+.fieldForm {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding-bottom: 10px;
+}
+
+.btn {
+  width: 160px;
+  height: 56px;
+  background-color: #e44848;
+  border-radius: 200px;
+  border: none;
+}
+
+.textarea {
+  width: 400px;
+  height: 114px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
