@@ -80,9 +80,19 @@ const ShowMoreModal = ({ item, isOpen, closeModal }) => {
         <div>
           <p className={css.description}>{item.description}</p>
         </div>
-        <div>
-          <button onClick={() => setActiveTab("features")}>Features</button>
-          <button onClick={() => setActiveTab("reviews")}>Reviews</button>
+        <div className={css.div_btn}>
+          <button
+            className={css.btn.feature}
+            onClick={() => setActiveTab("features")}
+          >
+            Features
+          </button>
+          <button
+            className={css.btn.feature}
+            onClick={() => setActiveTab("reviews")}
+          >
+            Reviews
+          </button>
         </div>
         <div>{renderContent()}</div>
       </Modal>
