@@ -2,24 +2,18 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import css from "./ReservationForm.module.css";
-const FeedbackSchema = Yup.object()
-  .shape({
-    username: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    useremail: Yup.string().email().required("Required"),
-    bookingdate: Yup.date().required("Required"),
-  })
-  .required();
-
-// const {
-//   register,
-//   handleSubmit,
-//   formState: { errors },
-// } = useForm({
-//   resolver: yupResolver(FeedbackSchema),
-// });
+import { useSelector } from "react-redux";
+import { selectOpenModal } from "../../redux/operations/selectors";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+const FeedbackSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email().required("Required"),
+  bookingdate: Yup.date().required("Required"),
+});
 
 // const initialValues = {
 //   username: "",
@@ -28,7 +22,15 @@ const FeedbackSchema = Yup.object()
 // };
 
 const ReservationForm = ({ item }) => {
-  const { register, handleSubmit } = useForm({
+  const isOpenModal = useSelector(selectOpenModal);
+  const [modalIsOpen, setModalIsOpen] = useState(isOpenModal);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
     resolver: yupResolver(FeedbackSchema),
   });
 
@@ -42,6 +44,22 @@ const ReservationForm = ({ item }) => {
   //   actions.resetForm();
   // };
 
+  const onClose = () => {
+    if (modalIsOpen) {
+      setModalIsOpen(false);
+    }
+  };
+
+  const toCatalog = () => {
+    navigate("/catalog");
+  };
+
+  const onSubmit = (data) => {
+    console.log("Data", data);
+    reset();
+    onClose();
+  };
+
   return (
     <div>
       <p className={css.main_text}>Book your campervan now</p>
@@ -49,7 +67,18 @@ const ReservationForm = ({ item }) => {
         Stay connected! We are always ready to help you.
       </p>
 
-      <form className={css.form} onSubmit={handleSubmit((d) => console.log(d))}>
+      <form
+        className={css.form}
+        onSubmit={handleSubmit((e) =>
+          onSubmit({
+            name: e.name,
+            email: e.email,
+            bookingdate: e.bookingdate,
+            comment: e.comment,
+            item: item,
+          })
+        )}
+      >
         <input
           className={css.labelContainer}
           {...register("name")}
@@ -63,8 +92,8 @@ const ReservationForm = ({ item }) => {
         />
         <input
           className={css.labelContainer}
-          type="booking date"
-          {...register("booking date")}
+          type="date"
+          {...register("bookingdate")}
           placeholder="Booking date"
         />
         <textarea
@@ -73,7 +102,9 @@ const ReservationForm = ({ item }) => {
           {...register("comment")}
           placeholder="Comment"
         />
-        <input type="submit" value="Send" className={css.btn} />
+        <button onClick={toCatalog} type="submit" className={css.btn}>
+          Send
+        </button>
       </form>
     </div>
   );
