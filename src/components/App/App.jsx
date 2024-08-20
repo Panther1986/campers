@@ -18,9 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />}>
-            <Route path="/catalog/:id" element={<ShowMoreModal />} />
-            <Route path=":features" element={<Features />} />
-            <Route path=":reviews" element={<Reviews />} />
+            <Route path="/catalog/:id/" element={<ShowMoreModal />}>
+              <Route path="features" element={<Features />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
           </Route>
           <Route path="/favorites" element />
 

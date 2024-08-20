@@ -15,12 +15,6 @@ const FeedbackSchema = Yup.object().shape({
   bookingdate: Yup.date().required("Required"),
 });
 
-// const initialValues = {
-//   username: "",
-//   useremail: "",
-//   bookingdate: new Date(),
-// };
-
 const ReservationForm = ({ item }) => {
   const isOpenModal = useSelector(selectOpenModal);
   const [modalIsOpen, setModalIsOpen] = useState(isOpenModal);

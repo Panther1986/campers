@@ -33,6 +33,7 @@ const campsSlice = createSlice({
         state.error = true;
         state.allItems = initialState.allItems;
         state.item = initialState.item;
+        state.openModal = false;
       })
       .addCase(fetchCarOfId.pending, (state, action) => {
         state.loading = true;
@@ -44,6 +45,7 @@ const campsSlice = createSlice({
         state.loading = false;
         state.error = false;
         state.item = [action.payload];
+        console.log("state.item", state.item);
         state.openModal = true;
       })
       .addCase(fetchCarOfId.rejected, (state, action) => {

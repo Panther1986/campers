@@ -11,28 +11,30 @@ import {
 import { fetchAllCars } from "../../redux/operations/operations.js";
 
 const CatalogPage = () => {
-  const allCars = useSelector(selectorAllItems);
-  const isError = useSelector(selectorError);
+  // const allCars = useSelector(selectorAllItems);
+  // const isError = useSelector(selectorError);
   const isLoading = useSelector(selectorLoading);
   const dispatch = useDispatch();
 
-  const itemsPerPage = 4;
+  // console.log("allCars", allCars);
+
+  // const itemsPerPage = 4;
   // const [cars, setCars] = useState(allCars);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [visibleCars, setVisibleCars] = useState([]);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [visibleCars, setVisibleCars] = useState([]);
 
   useEffect(() => {
     dispatch(fetchAllCars());
   }, [dispatch]);
 
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const newCars = allCars.slice(startIndex, endIndex);
-    setVisibleCars(newCars);
-  }, [currentPage, allCars]);
+  // useEffect(() => {
+  //   const startIndex = (currentPage - 1) * itemsPerPage;
+  //   const endIndex = startIndex + itemsPerPage;
+  //   const newCars = allCars.slice(startIndex, endIndex);
+  //   setVisibleCars(newCars);
+  // }, [currentPage, allCars]);
 
-  const totalPages = Math.ceil(allCars.length / itemsPerPage);
+  // const totalPages = Math.ceil(allCars.length / itemsPerPage);
 
   return (
     <>
@@ -41,19 +43,8 @@ const CatalogPage = () => {
       ) : (
         <div className={css.div}>
           <ul className={css.ul}>
-            {visibleCars.map((car) => (
-              <CarCard key={car.id} item={car} />
-            ))}
+            {selectorAllItems.length > 0 && <CarCard />}
           </ul>
-
-          {currentPage < totalPages && (
-            <button
-              className={css.btnLoad}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              Load more
-            </button>
-          )}
         </div>
       )}
     </>
