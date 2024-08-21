@@ -1,14 +1,11 @@
-import home from "../../images/golovna.jpeg";
-import { GiRollingSuitcase } from "react-icons/gi";
 import css from "./HomePage.module.css";
 const HomePage = () => {
   return (
-    <div>
+    <div className={css.div_home}>
       <h2>
         Renting the best campervans for any of your desires. With our company,
-        your travels will become even brighter <GiRollingSuitcase />
+        your travels will become even brighter
       </h2>
-      <img src={home} />
     </div>
   );
 };

@@ -18,8 +18,32 @@ const closeIcon = `${sprite}#close`;
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
-
-Modal.setAppElement("#root");
+const customStyles = {
+  content: {
+    position: "absolute",
+    overflowY: "auto",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    marginTop: "10px",
+    marginBottom: "10px",
+    transform: "translate(-50%, -50%)",
+    maxWidth: "982px",
+    maxHeight: "100%",
+    borderRadius: "20px",
+    padding: "40px",
+  },
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
+  },
+};
 
 const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
   console.log("itemId Show More Modal", itemId);
@@ -35,9 +59,9 @@ const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
   const renderContent = () => {
     switch (activeTab) {
       case "features":
-        return <Features id={itemId.id} item={itemDetail} />;
+        return <Features />;
       case "reviews":
-        return <Reviews id={itemId.id} item={itemDetail} />;
+        return <Reviews />;
       default:
         null;
     }
@@ -59,11 +83,10 @@ const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
         return (
           <div key={item.id}>
             <Modal
-              // key={index}
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
               contentLabel="Show more"
-              // overlayClassName={css.overlay}
+              style={customStyles}
             >
               <div className={css.div_btn}>
                 <p className={css.name_product}>{item.name}</p>
@@ -91,7 +114,7 @@ const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
               <div>
                 <p className={css.description}>{item.description}</p>
               </div>
-              <div className={css.div_btn_feature}>
+              <div className={css["link-block"]}>
                 <NavLink
                   to={`${id}/features`}
                   className={buildLinkClass}

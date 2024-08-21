@@ -14,8 +14,8 @@ const CarCard = () => {
   };
 
   return (
-    <div>
-      <ul>
+    <div className={css.div_carCard}>
+      <ul className={css.list}>
         {items.slice(0, visibleItems).map((item) => {
           return (
             <li key={item.id} className={css.li}>

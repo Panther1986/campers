@@ -16,38 +16,20 @@ const Features = () => {
   const detailsOfCamp = useSelector(selectorItem);
 
   useEffect(() => {
-    dispatch(fetchCarOfId(id));
-  }, [dispatch, id]);
-
-  console.log("detailsOfCamp", detailsOfCamp);
-  // const { id: paramId } = useParams();
-  // const id = carId || paramId;
-  // const [camp, setCamp] = useState([]);
-  // console.log("feature", item);
-
-  // useEffect(() => {
-  //   const fetchcamp = async () => {
-  //     try {
-  //       const campData = await fetchCarOfId(id || paramId);
-  //       console.log(campData);
-  //       setCamp(campData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchcamp();
-  // }, [id, paramId]);
+    if (!detailsOfCamp.length) {
+      dispatch(fetchCarOfId(id));
+    }
+  }, [dispatch, id, detailsOfCamp.length]);
 
   return (
     <>
       {detailsOfCamp.length > 0 &&
         detailsOfCamp.map((item) => {
           return (
-            <div className={css.main}>
+            <div key={item.id} className={css.main}>
               <div className={css.wrap}>
-                <ItemsModalFeatures items={item.items} />
-                <VehicleDetails items={item} />
+                <ItemsModalFeatures item={item} />
+                <VehicleDetails item={item} />
               </div>
               <ReservationForm item={item} />
             </div>

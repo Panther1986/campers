@@ -59,6 +59,7 @@
   line-height: 24px;
   text-align: left;
   background-color: transparent;
+  position: relative;
 }
 .div_btn {
   display: flex;
@@ -70,10 +71,33 @@
 
 .div_btn_feature {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  margin-top: 44px;
   gap: 40px;
-  align-items: center;
-  background-color: transparent;
+  border-bottom: 2px solid rgb(235, 237, 237);
+}
+.link {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  display: inline-block;
+  position: relative;
+  margin-bottom: 24px;
+}
+.active {
+}
+.active::after {
+  text-decoration: underline;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  height: 4px;
+  background-color: #e44848;
+  z-index: -1;
 }
 /* .overlay {
   position: fixed;
@@ -83,3 +107,10 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 } */
+.link-block {
+  display: flex;
+  flex-direction: row;
+  margin-top: 44px;
+  gap: 40px;
+  border-bottom: 2px solid rgb(235, 237, 237);
+}
