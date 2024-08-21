@@ -2,7 +2,7 @@ import css from "./HomePage.module.css";
 const HomePage = () => {
   return (
     <div className={css.div_home}>
-      <h2>
+      <h2 className={css.text_home}>
         Renting the best campervans for any of your desires. With our company,
         your travels will become even brighter
       </h2>

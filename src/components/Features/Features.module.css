@@ -11,8 +11,12 @@
 .main {
   display: flex;
   flex-direction: row;
+  color: rgb(99, 89, 35);
 }
 .wrap {
+  column-gap: 24px;
+  row-gap: 44px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }

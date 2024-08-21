@@ -16,5 +16,8 @@
   justify-content: space-between;
 }
 .main_div {
-  margin-right: 20px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

@@ -1,5 +1,4 @@
 .name_product {
-  padding-right: 248px;
   font-weight: bold;
   margin: 0;
   font-family: Inter;
@@ -7,10 +6,10 @@
   font-weight: 600;
   line-height: 30px;
   text-align: left;
+  color: rgb(99, 89, 35);
 }
 .price {
   font-weight: bold;
-  padding-right: 10px;
   margin: 0;
   font-family: Inter;
   font-size: 24px;
@@ -19,6 +18,7 @@
   text-align: left;
   display: flex;
   align-items: center;
+  color: rgb(99, 89, 35);
 }
 
 .icon {
@@ -30,8 +30,8 @@
 }
 
 .description {
-  color: #475467;
-  margin: 24px 0 24px;
+  color: rgb(99, 89, 35);
+  margin: 0;
 }
 .icon_close {
   stroke: black;
@@ -99,18 +99,17 @@
   background-color: #e44848;
   z-index: -1;
 }
-/* .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-} */
+
 .link-block {
   display: flex;
   flex-direction: row;
   margin-top: 44px;
   gap: 40px;
   border-bottom: 2px solid rgb(235, 237, 237);
+}
+
+.div_main_contain {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

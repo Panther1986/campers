@@ -34,6 +34,7 @@ const customStyles = {
     maxHeight: "100%",
     borderRadius: "20px",
     padding: "40px",
+    color: "rgb(195, 193, 181)",
   },
   overlay: {
     position: "fixed",
@@ -41,7 +42,7 @@ const customStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.75)",
+    backgroundColor: "rgba(195, 193, 181, 0.5)",
   },
 };
 
@@ -88,31 +89,33 @@ const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
               contentLabel="Show more"
               style={customStyles}
             >
-              <div className={css.div_btn}>
-                <p className={css.name_product}>{item.name}</p>
-                <button onClick={closeModal} className={css.btn}>
-                  <svg width="32" height="32" className={css.icon_close}>
-                    <use href={closeIcon} />
-                  </svg>
-                </button>
-              </div>
-              <CarCardReviews item={item} />
-              <p className={css.price}>
-                <FaEuroSign className={css.icon} />
-                {item.price}.00
-              </p>
-              <div className={css.div}>
-                {item.gallery.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${item.name} ${index + 1}`}
-                    className={css.img}
-                  />
-                ))}
-              </div>
-              <div>
-                <p className={css.description}>{item.description}</p>
+              <div className={css.div_main_contain}>
+                <div className={css.div_btn}>
+                  <p className={css.name_product}>{item.name}</p>
+                  <button onClick={closeModal} className={css.btn}>
+                    <svg width="32" height="32" className={css.icon_close}>
+                      <use href={closeIcon} />
+                    </svg>
+                  </button>
+                </div>
+                <CarCardReviews item={item} />
+                <p className={css.price}>
+                  <FaEuroSign className={css.icon} />
+                  {item.price}.00
+                </p>
+                <div className={css.div}>
+                  {item.gallery.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`${item.name} ${index + 1}`}
+                      className={css.img}
+                    />
+                  ))}
+                </div>
+                <div>
+                  <p className={css.description}>{item.description}</p>
+                </div>
               </div>
               <div className={css["link-block"]}>
                 <NavLink

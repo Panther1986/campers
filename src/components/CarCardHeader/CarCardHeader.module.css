@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  width: 100%;
 }
 .name_product {
   font-weight: bold;
@@ -12,6 +13,7 @@
   font-weight: 600;
   line-height: 30px;
   text-align: left;
+  color: rgb(99, 89, 35);
 }
 .price {
   font-weight: bold;
@@ -23,6 +25,7 @@
   text-align: left;
   display: flex;
   align-items: center;
+  color: rgb(99, 89, 35);
 }
 .btn {
   background-color: transparent;

@@ -1,7 +1,9 @@
 .nav {
   display: flex;
+  gap: 100px;
   flex-direction: row;
-  gap: 20px;
   justify-content: center;
-  color: rgb(26, 8, 59);
+  color: rgb(195, 193, 181);
+  font-size: x-large;
+  margin-bottom: 30px;
 }

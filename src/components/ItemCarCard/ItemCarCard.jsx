@@ -51,7 +51,7 @@ const ItemCarCard = ({ item }) => {
           style={{ textDecoration: "underline" }}
         ></NavLink>
         <CarCardReviews item={item} />
-        <div>
+        <div className={css.div_descript}>
           <p className={css.description}>{item.description}</p>
         </div>
         <Facilities item={item} />

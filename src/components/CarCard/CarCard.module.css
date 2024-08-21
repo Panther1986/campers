@@ -49,27 +49,33 @@
 .btnLoad {
   width: 145px;
   height: 56px;
-  background-color: whitesmoke;
-  color: rgba(71, 84, 103, 0.2);
+  background-color: rgb(195, 193, 181);
+  color: rgb(99, 89, 35);
   white-space: nowrap;
   border-radius: 30px;
+  border: none;
 }
 .btnLoad:hover,
 .btnLoad:focus {
   background-color: cadetblue;
 }
 .div_carCard {
-}
-.div_carCard:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: none;
+}
+.div_carCard:last-child {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
 }
 .list {
-  margin-top: 30px;
+  margin: 0 auto;
   width: 890px;
-  margin-right: 64px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

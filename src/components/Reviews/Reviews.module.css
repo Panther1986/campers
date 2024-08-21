@@ -7,20 +7,22 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 430px;
-  margin-right: 24px;
+  color: rgb(99, 89, 35);
 }
 .first_letter {
   width: 60px;
   height: 60px;
   border-radius: 60px;
-  background-color: #f2f4f7;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: rgb(99, 89, 35);
+  background-color: rgb(195, 193, 181);
 }
 .div_name {
   display: flex;
   flex-direction: column;
+  color: rgb(99, 89, 35);
 }
 .p_name {
   margin: 0;
@@ -28,9 +30,13 @@
 
 .div_main {
   display: flex;
+  margin-top: 44px;
+  margin-bottom: 44px;
 }
 
 .div_rating {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  margin-right: 24px;
 }

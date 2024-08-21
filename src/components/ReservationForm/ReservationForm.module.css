@@ -1,17 +1,22 @@
 .form {
   display: flex;
   flex-direction: column;
+  border: 1px solid rgb(195, 193, 181);
+  border-radius: 10px;
+  padding: 24px;
+  width: 448px;
   gap: 14px;
+  justify-content: center;
+  align-items: center;
+  color: rgb(99, 89, 35);
 }
 
 .labelContainer {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 24px;
-  padding-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid #939191;
+  border-radius: 10px;
+  padding: 18px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgb(195, 193, 181);
 }
 .div {
   width: 100%;
@@ -24,6 +29,7 @@
   line-height: 24px;
   text-align: left;
   margin: 0;
+  color: rgb(99, 89, 35);
 }
 .support_text {
   font-family: Inter;
@@ -32,6 +38,7 @@
   line-height: 24px;
   text-align: left;
   margin: 0;
+  color: rgb(99, 89, 35);
 }
 
 .fieldForm {
@@ -48,12 +55,13 @@
   background-color: #e44848;
   border-radius: 200px;
   border: none;
+  color: rgb(99, 89, 35);
 }
 
 .textarea {
-  width: 400px;
-  height: 114px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+  padding: 18px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgb(195, 193, 181);
 }
