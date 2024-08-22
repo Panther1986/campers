@@ -8,6 +8,7 @@ import CarCard from "../CarCard/CarCard";
 import ShowMoreModal from "../ShowMoreModal/ShowMoreModal";
 import Features from "../Features/Features";
 import Reviews from "../Reviews/Reviews";
+import FavoritePage from "../../pages/FavoritePage/FavoritePage";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               <Route path="reviews" element={<Reviews />} />
             </Route>
           </Route>
-          <Route path="/favorites" element />
+          <Route path="/favorites" element={<FavoritePage />} />
 
           <Route path="*" element={<HomePage />} />
         </Routes>

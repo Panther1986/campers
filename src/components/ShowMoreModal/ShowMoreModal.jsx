@@ -14,6 +14,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import clsx from "clsx";
 import { Suspense } from "react";
 
+Modal.setAppElement("#root");
+
 const closeIcon = `${sprite}#close`;
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -47,15 +49,10 @@ const customStyles = {
 };
 
 const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
-  console.log("itemId Show More Modal", itemId);
   const itemDetail = useSelector(selectorItem);
   const dispatch = useDispatch();
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("description");
-
-  console.log("itemId", itemId);
-
-  console.log("itemDetail", itemDetail);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -86,7 +83,7 @@ const ShowMoreModal = ({ modalIsOpen, closeModal, itemId }) => {
             <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
-              contentLabel="Show more"
+              contentLabel="Show more modal"
               style={customStyles}
             >
               <div className={css.div_main_contain}>

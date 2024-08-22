@@ -5,8 +5,8 @@ import { selectorAllItems } from "../../redux/operations/selectors";
 import { useSelector } from "react-redux";
 import ItemCarCard from "../ItemCarCard/ItemCarCard";
 
-const CarCard = () => {
-  const items = useSelector(selectorAllItems);
+const CarCard = ({ items }) => {
+  // const items = useSelector(selectorAllItems);
   const itemsPerPage = 4;
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
   const handleLoadMore = () => {

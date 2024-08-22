@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  margin-bottom: 32px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
+  padding: 24px 24px;
+}
+
+.ul {
+  margin: 0 auto;
+  width: 890px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.div_favor_page {
+  background-color: rgb(195, 193, 181, 0.5);
+  border-radius: 30px;
+  align-items: stretch;
+}
