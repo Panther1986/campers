@@ -31,7 +31,6 @@ const Reviews = () => {
     <>
       {detailsOfCamp.length > 0 &&
         detailsOfCamp.map((item) => {
-          console.log("feature item", item);
           return (
             <div key={item.id} className={css.div_main}>
               <div className={css.div_rating}>

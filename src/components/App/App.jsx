@@ -1,14 +1,18 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
-import HomePage from "../../pages/HomePage/HomePage.jsx";
-import CatalogPage from "../../pages/CatalogPage/CatalogPage.jsx";
+
 import Navigation from "../Navigation/Navigation";
-import CarCard from "../CarCard/CarCard";
-import ShowMoreModal from "../ShowMoreModal/ShowMoreModal";
-import Features from "../Features/Features";
-import Reviews from "../Reviews/Reviews";
-import FavoritePage from "../../pages/FavoritePage/FavoritePage";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
+const FavoritePage = lazy(() =>
+  import("../../pages/FavoritePage/FavoritePage")
+);
+
+const Features = lazy(() => import("../Features/Features"));
+const Reviews = lazy(() => import("../Reviews/Reviews"));
+const ShowMoreModal = lazy(() => import("../ShowMoreModal/ShowMoreModal"));
 
 function App() {
   return (

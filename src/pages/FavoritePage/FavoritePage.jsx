@@ -10,7 +10,6 @@ const FavoritePage = () => {
   const dispatch = useDispatch();
   const detailsOfCamp = useSelector(selectorItem);
   const selectItemsLocal = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log("selectItems", selectItemsLocal);
 
   const getItem = selectItemsLocal.map((item) => item);
 
